@@ -3,6 +3,7 @@ import model.Seller;
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -24,5 +25,10 @@ public class Main {
         for (Seller obj : listAll){
             System.out.println(obj);
         }
+
+        System.out.println("\n==== TEST 3: seller findAll ====");
+        Seller newSeller = new Seller(null, "Lucas", "teste@email.com", new Date(), 3000.0, department);
+        sellerDao.inset(newSeller);
+        System.out.println("Insert! New id = " + newSeller.getId());
     }
 }
