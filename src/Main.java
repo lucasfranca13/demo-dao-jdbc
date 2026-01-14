@@ -5,9 +5,12 @@ import model.dao.SellerDao;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
         Seller seller = sellerDao.findById(3);
@@ -37,5 +40,13 @@ public class Main {
         sellerTest.setName("Ricardo Junior");
         sellerDao.update(sellerTest);
         System.out.println("Update Completed!");
+
+        System.out.println("==== TEST 5: Delete Seller");
+        System.out.print("Informe um Id do seller a ser excluído: ");
+        int idSeller = sc.nextInt();
+        sellerDao.deleteById(idSeller);
+        System.out.println("O seller de id: " + idSeller + " foi excluído!");
+
+
     }
 }
